@@ -23,8 +23,12 @@ class User < ActiveRecord::Base
       user.oauth_token = auth.credentials.token
       user.oauth_expires_at = Time.at(auth.credentials.expires_at)
       user.password = SecureRandom.hex(5) unless user.password
-      user.slug = user.name.parameterize unless user.slug
+      user.slug = user.auto_generate_slug unless user.slug
       user.save!
     end
+  end
+
+  def auto_generate_slug
+    User.find_by_slug(self.name.parameterize) ? self.name.parameterize + rand(10 ** 3).to_s : self.name.parameterize
   end
 end
