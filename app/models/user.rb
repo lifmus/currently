@@ -6,8 +6,12 @@ class User < ActiveRecord::Base
 
   has_many :statuses
 
-  def latest_status
+  def latest_status_content
     self.statuses.last.try(:content) || "No statuses created yet"
+  end
+
+  def latest_status
+    self.statuses.last
   end
 
   def self.from_omniauth(auth)
