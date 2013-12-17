@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :statuses
+  validates :slug, uniqueness: true
+  validates :slug, presence: true
 
   def latest_status_content
     self.statuses.last.try(:content) || "No statuses created yet"
