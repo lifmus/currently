@@ -3,6 +3,6 @@ Currently::Application.routes.draw do
   match 'auth/:provider/callback', to: 'sessions#create', via: :get
   match 'auth/failure', to: redirect('/'), via: :get
   match 'signout', to: 'sessions#destroy', as: 'signout', via: :get
-
-  resources :users, path: "/", only: [:show], :constraints => lambda { |r| User.find(r.params[:id]).present? }
+  match ':slug', to: 'users#show', constraints: lambda { |r| User.find_by_slug(r.params[:slug]).present? }, as: 'user', via: :get
+  # devise_for :users
 end
