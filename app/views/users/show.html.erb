@@ -1,7 +1,7 @@
 This is the profile of <%= @user.name %>
 
 <br>
-"<%= @user.latest_status_content %>" <%= time_ago_in_words(@user.latest_status.try(:created_at)) %> ago
+"<%= @user.latest_status_content %>" <%= time_ago %>
 
 <br>
 
