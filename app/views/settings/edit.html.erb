@@ -1,0 +1,7 @@
+<div class='container'>
+  <%= form_for @user, class: 'form-inline', method: :put, url: update_settings_path do |f| %>
+    <%= f.label 'Update username' %>
+    <%= f.text_field :slug %>
+    <%= f.submit 'Save' %>
+  <% end %>
+</div>

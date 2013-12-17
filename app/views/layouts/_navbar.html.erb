@@ -1,19 +1,20 @@
-<div class="navbar navbar-fluid-top navbar-fixed-top">
-  <div class="navbar-inner">
-    <div class="container-fluid">
-      <a class="btn btn-navbar" data-target=".nav-collapse" data-toggle="collapse">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
+<div class='navbar navbar-fluid-top navbar-fixed-top'>
+  <div class='navbar-inner'>
+    <div class='container-fluid' id='navbar-container'>
+      <a class='btn btn-navbar' data-target='.nav-collapse' data-toggle='collapse'>
+        <span class='icon-bar'></span>
+        <span class='icon-bar'></span>
+        <span class='icon-bar'></span>
       </a>
-      <a class="brand" href="#">Currently</a>
-      <div class="container-fluid nav-collapse">
-        <ul class="nav">
-          <li><%= link_to "Link1", "/path1"  %></li>
-          <li><%= link_to "Link2", "/path2"  %></li>
-          <li><%= link_to "Link3", "/path3"  %></li>
+      <a class='brand' href='<%= root_path %>'>Currently</a>
+      <div class='container-fluid nav-collapse'>
+        <ul class='nav'>
+          <li><%= link_to 'Profile', user_path(current_user.slug) if current_user %></li>
+          <li><%= link_to 'Find Friends', '#' if current_user %></li>
+          <li><%= link_to 'Settings', settings_path if current_user %></li>
+          <li><%= current_user ? (link_to 'Sign Out', '/signout') : (link_to 'Sign In With Facebook', '/auth/facebook') %></li>
         </ul>
-      </div><!--/.nav-collapse -->
+      </div>
     </div>
   </div>
 </div>

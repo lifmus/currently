@@ -1,11 +1,12 @@
-This is the profile of <%= @user.name %>
+<div class='container'>
+  <h1>This is the profile of <%= @user.name %></h1>
 
-<br>
-"<%= @user.latest_status_content %>" <%= time_ago %>
+  <h3>"<%= @user.latest_status_content %>" <%= time_ago %></h3>
 
-<br>
+  <br>
 
-<%= form_for Status.new, remote: false do |f| %>
-  <%= f.text_field :content, placeholder: 'What are you doing?', id: 'update-status' %>
-  <%= f.submit 'Submit' %>
-<% end if @user == current_user %>
+  <%= form_for Status.new, remote: false do |f| %>
+    <%= f.text_area :content, placeholder: 'What are you doing?', id: 'update-status' %>
+    <%= f.submit 'Update Status', class: 'btn' %>
+  <% end if @user == current_user %>
+</div>
