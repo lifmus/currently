@@ -23,6 +23,7 @@ class User < ActiveRecord::Base
       user.oauth_token = auth.credentials.token
       user.oauth_expires_at = Time.at(auth.credentials.expires_at)
       user.password = SecureRandom.hex(5) unless user.password
+      user.slug = user.name.parameterize unless user.slug
       user.save!
     end
   end
