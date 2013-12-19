@@ -7,7 +7,7 @@ class StatusesController < ApplicationController
     else
       flash[:error] = @status.errors.empty? ? "Error" : @status.errors.full_messages.to_sentence
     end
-    redirect_to user_path(@status.try(:user).try(:slug))
+    redirect_to connections_path
   end
 
 end
