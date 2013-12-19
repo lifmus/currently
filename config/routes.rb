@@ -7,6 +7,6 @@ Currently::Application.routes.draw do
   match 'signout', to: 'sessions#destroy', as: 'signout', via: :get
   match 'settings', to: 'settings#edit', as: 'settings', via: :get
   match 'settings', to: 'settings#update', as: 'update_settings', via: :put
-  resources :statuses, :friends
+  resources :statuses, :friends, :connections
   match ':slug', to: 'users#show', constraints: lambda { |r| User.find_by_slug(r.params[:slug]).present? }, as: 'user', via: :get
 end

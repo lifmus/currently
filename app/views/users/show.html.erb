@@ -1,7 +1,7 @@
 <div class='container'>
   <h1>This is the profile of <%= @user.name %></h1>
 
-  <h3>"<%= @user.latest_status_content %>" <%= time_ago %></h3>
+  <h3>"<%= @user.latest_status_content %>" <%= time_ago(@user.latest_status) %></h3>
 
   <br>
 
