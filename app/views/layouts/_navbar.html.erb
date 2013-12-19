@@ -10,7 +10,6 @@
       <div class='container-fluid nav-collapse'>
         <ul class='nav'>
           <li><%= link_to 'Profile', user_path(current_user.slug) if current_user %></li>
-          <li><%= link_to 'Find Friends', '#' if current_user %></li>
           <li><%= link_to 'Settings', settings_path if current_user %></li>
           <li><%= current_user ? (link_to 'Sign Out', '/signout') : (link_to 'Sign In With Facebook', '/auth/facebook') %></li>
         </ul>

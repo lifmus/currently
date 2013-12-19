@@ -3,3 +3,5 @@ en:
     attributes:
       user:
         slug: Username
+      connection:
+        follower_id: You are already following them

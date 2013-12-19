@@ -1,0 +1,30 @@
+<div class='container'>
+  <div class='row-fluid'>
+    <div class='span9'>
+      <%= render partial: 'shared/update_status' %>
+      <h1>You</h1>
+        <%= render partial: 'shared/user_status', locals: { user: current_user } %>
+      <h1>Friends</h1>
+      <% @currently_friends.each do |currently_friend|%> 
+        <%= render partial: 'shared/user_status', locals: { user: currently_friend } %>
+      <% end %>
+    </div>
+    <div class='span3'>  
+      <div class='well sidebar-nav'>  
+        <ul class='nav nav-list'>  
+          <li class='nav-header'>Facebook Friends</li>  
+          <li class='divider'></li>
+          <% @facebook_friends.each do |facebook_friend| %>
+            <li>
+              <%= link_to facebook_friend.name, user_path(facebook_friend.slug) %>
+              <%= form_for Connection.new do |f| %>
+                <%= f.hidden_field :leader_id, value: facebook_friend.id %>
+                <%= f.submit 'Follow', class: 'btn' %>
+              <% end %>
+            </li>
+          <% end %>
+        </ul>  
+      </div> 
+    </div>
+  </div>
+</div>
