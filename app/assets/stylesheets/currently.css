@@ -6,3 +6,11 @@ main {
   padding-left: 20%;
   padding-right: 20%;
 }
+
+body.static-layout{
+  background: url(/assets/background.png) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}

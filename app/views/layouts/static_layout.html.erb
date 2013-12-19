@@ -17,24 +17,9 @@
     <%= stylesheet_link_tag 'application', :media => 'all' %>
     <%= javascript_include_tag 'application' %>
   </head>
-  <body>
-    <header>
-      <%= render partial: 'layouts/navbar' %>
-    </header>
-    <main>
-      <div class='container-fluid'>
-        <div class='row-fluid'>
-          <div class='span12'>
-            <div class='container'>
-              <%= bootstrap_flash %>
-            </div>
-            <%= yield %>
-          </div>
-        </div>
-      </div>
-    </main>
-
-    <footer>
-    </footer>
+  <body class='static-layout'>
+    <%#= render partial: 'layouts/navbar' %> 
+    <!-- remove this later -->
+    <%= yield %>
   </body>
 </html>
