@@ -9,6 +9,10 @@ class User < ActiveRecord::Base
   has_many :leader_connections, class_name: 'Connection', foreign_key: 'follower_id'
   has_many :leaders, through: :leader_connections, source: :leader
 
+  validates :slug, clean_username: true
+  validates :slug, uniqueness: true
+  validates :slug, presence: true
+
   def facebook_friends
     if self.leaders.empty?
       User.where.not(id: [self.id])
