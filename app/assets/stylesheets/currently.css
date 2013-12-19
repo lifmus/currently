@@ -7,6 +7,13 @@ main {
   padding-right: 20%;
 }
 
+#update-status{
+  width:100%;
+}
+
+
+/*static page*/
+
 body.static-layout{
   background: url(/assets/background.png) no-repeat center center fixed; 
   -webkit-background-size: cover;
