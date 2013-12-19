@@ -7,6 +7,6 @@
 
   <%= form_for Status.new, remote: false do |f| %>
     <%= f.text_area :content, placeholder: 'What are you doing?', id: 'update-status' %>
-    <%= f.submit 'Update Status', class: 'btn' %>
+    <%= f.submit 'Update Status', class: 'btn status-text-area' %>
   <% end if @user == current_user %>
 </div>
