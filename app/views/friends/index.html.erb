@@ -1,9 +1,11 @@
 <div class='container'>
   <div class='row-fluid'>
     <div class='span9'>
+      <h1>You</h1>
+        <h4><strong><%= link_to current_user.name, user_path(current_user.slug) %>:</strong> "<%= current_user.latest_status_content %>" <%= time_ago( current_user.latest_status) %></h4>
       <h1>Friends</h1>
       <% @currently_friends.each do |currently_friend|%> 
-        <p><strong><%= link_to currently_friend.name, user_path(currently_friend.slug) %>:</strong> "<%= currently_friend.latest_status_content %>" <%= time_ago( currently_friend.latest_status) %></p>
+        <h4><strong><%= link_to currently_friend.name, user_path(currently_friend.slug) %>:</strong> "<%= currently_friend.latest_status_content %>" <%= time_ago( currently_friend.latest_status) %></h4>
       <% end %>
     </div>
     <div class='span3'>  
