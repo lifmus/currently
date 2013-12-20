@@ -1,6 +1,6 @@
 class StatusesController < ApplicationController
   before_action       :activate_user_wall, except: [:sms_create]
-  skip_before_filter  :verify_authenticity_token, only: [:sms_create]
+  skip_before_action  :verify_authenticity_token, only: [:sms_create]
 
   def create
     @status = current_user.statuses.new(params[:status].permit(:content))

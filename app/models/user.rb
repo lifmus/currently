@@ -50,6 +50,7 @@ class User < ActiveRecord::Base
   end
 
   def send_successful_status_message
+    start_twilio_client
     @client.account.sms.messages.create(
       from: TWILIO_NUMBER,
       to: self.phone,
@@ -58,6 +59,7 @@ class User < ActiveRecord::Base
   end
 
   def send_failed_status_message
+    start_twilio_client
     @client.account.sms.messages.create(
       from: TWILIO_NUMBER,
       to: self.phone,
