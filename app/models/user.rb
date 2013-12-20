@@ -54,7 +54,7 @@ class User < ActiveRecord::Base
     @client.account.sms.messages.create(
       from: TWILIO_NUMBER,
       to: self.phone,
-      body: 'Success! Your status has been updated. Check it out at http://www.usecurrently.com/#{self.slug}'
+      body: 'Success! Your status has been updated. Check it out at http://www.usecurrently.com/' + self.slug
     )
   end
 
