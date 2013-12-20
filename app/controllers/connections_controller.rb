@@ -4,7 +4,7 @@ class ConnectionsController < ApplicationController
   def index
     redirect_to 'static#home' unless current_user
     @facebook_friends = current_user.facebook_friends
-    @currently_friends = current_user.leaders
+    @currently_friends = current_user.leaders.order('status_last_updated_at DESC')
   end
 
   def create
