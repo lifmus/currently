@@ -9,8 +9,8 @@ namespace :facebook do
       friends.each do |friend|
         User.find_or_initialize_by(uid: friend['id']) do |user|
           user.name = friend['name']
-          user.password = SecureRandom.hex(5) unless user.password
-          user.slug = user.auto_generate_slug unless user.slug
+          user.password = SecureRandom.hex(5) unless !user.password.blank?
+          user.slug = user.auto_generate_slug unless !user.slug.blank?
           user.save! ? (puts user.name + ' updated!') : user.errors.full_messages.to_sentence
         end
       end

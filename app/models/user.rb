@@ -56,7 +56,7 @@ class User < ActiveRecord::Base
 
   def auto_generate_slug
     generated_slug = User.find_by_slug(self.name.parameterize) ? self.name.parameterize + rand(10 ** 3).to_s : self.name.parameterize
-    generated_slug = self.uid if generated_slug.blank?
+    generated_slug = generated_slug.blank? ? self.uid : generated_slug
   end
 
   def send_successful_status_message
