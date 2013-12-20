@@ -11,4 +11,13 @@ class StatusesController < ApplicationController
     redirect_to connections_path
   end
 
+  def sms_create
+    @user = User.where(phone: params[:From]).try(:last)
+    if @user && @user.statuses.create(content: params[:Body])
+      @user.send_successful_status_message
+    else
+      @user.send_failed_status_message
+    end
+  end
+
 end

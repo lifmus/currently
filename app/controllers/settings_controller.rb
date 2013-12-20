@@ -6,8 +6,7 @@ class SettingsController < ApplicationController
   end
 
   def update
-    
-    if @user = current_user.update_attributes(params[:user].permit(:slug))
+    if @user = current_user.update_attributes(params[:user].permit(:slug, :phone))
       flash[:success] = "Settings updated"
     else
       flash[:error] = current_user.errors.empty? ? "Error" : current_user.errors.full_messages.to_sentence

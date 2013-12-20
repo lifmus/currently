@@ -2,6 +2,16 @@
   <%= form_for @user, class: 'form-inline', method: :put, url: update_settings_path do |f| %>
     <%= f.label 'Update username' %>
     <%= f.text_field :slug %>
+    <%= f.label 'Update phone number' %>
+    <%= f.text_field :phone, placeholder: '+19735557777' %>
     <%= f.submit 'Save' %>
+  <% end %>
+
+  <% unless @user.phone.blank? %>
+    <div>
+      <h2>
+        Send a text message to 347-269-2048 to update your status!
+      </h2>
+    </div>
   <% end %>
 </div>
