@@ -1,4 +1,6 @@
 class SettingsController < ApplicationController
+  before_action :activate_user_wall
+  
   def edit
     @user = current_user
   end

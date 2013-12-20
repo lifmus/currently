@@ -1,4 +1,5 @@
 class ConnectionsController < ApplicationController
+  before_action :activate_user_wall
 
   def index
     redirect_to 'static#home' unless current_user
