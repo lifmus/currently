@@ -1,4 +1,5 @@
 class StatusesController < ApplicationController
+  before_action :activate_user_wall
 
   def create
     @status = current_user.statuses.new(params[:status].permit(:content))
