@@ -21,6 +21,7 @@ class StatusesController < ApplicationController
     else
       send_failed_message_to_number(params[:From])
     end
+    redirect_to root_path
   end
 
   private
