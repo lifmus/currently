@@ -29,6 +29,7 @@ class User < ActiveRecord::Base
 
   def latest_status
     self.statuses.try(:last)
+    # Status.where(user_id: self.id, created_at: self.status_last_updated_at) not sure if this is faster
   end
 
   def self.from_omniauth(auth)
