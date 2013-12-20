@@ -13,7 +13,7 @@ class StatusesController < ApplicationController
   end
 
   def sms_create
-    @user = User.where(phone: params[:From]).try(:last)
+    @user = User.find_by_phone(params[:From])
     if @user && @user.statuses.create(content: params[:Body])
       @user.send_successful_status_message
     elsif @user

@@ -3,7 +3,8 @@ class ConnectionsController < ApplicationController
 
   def index
     redirect_to 'static#home' unless current_user
-    @facebook_friends = current_user.facebook_friends
+    @facebook_friends_on_currently = current_user.facebook_friends.has_logged_into_currently
+    @facebook_friends_not_on_currently = current_user.facebook_friends.has_never_logged_into_currently
     @currently_friends = current_user.leaders.order('status_last_updated_at DESC')
   end
 

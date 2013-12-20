@@ -14,7 +14,7 @@
         <ul class='nav nav-list'>  
           <li class='nav-header'>Facebook Friends</li>  
           <li class='divider'></li>
-          <% @facebook_friends.each do |facebook_friend| %>
+          <% @facebook_friends_on_currently.each do |facebook_friend| %>
             <li>
               <%= link_to facebook_friend.name, user_path(facebook_friend.slug) %>
               <%= form_for Connection.new do |f| %>

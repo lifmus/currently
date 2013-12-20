@@ -13,13 +13,21 @@ class User < ActiveRecord::Base
   validates :slug, uniqueness: true
   validates :slug, presence: true
 
+  scope :has_logged_into_currently, -> { where.not(oauth_token: nil) }
+  scope :has_never_logged_into_currently, -> { where(oauth_token: nil) }
+
   TWILIO_NUMBER = '+13472692048'
+  LAST_STATUS_ACTIVITY_CHECK = 1.month
+
+  def email_required?
+    false
+  end
 
   def facebook_friends
     if self.leaders.empty?
-      User.where.not(id: [self.id])
+      User.where.not(id: [self.id])#.where('status_last_updated_at > ?', Time.now - LAST_STATUS_ACTIVITY_CHECK)
     else
-      User.where.not(id: [self.id, self.leaders.pluck(:id)])
+      User.where.not(id: [self.id, self.leaders.pluck(:id)])#.where('status_last_updated_at > ?', Time.now - LAST_STATUS_ACTIVITY_CHECK)
     end
   end
 
