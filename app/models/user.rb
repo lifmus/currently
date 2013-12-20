@@ -63,7 +63,7 @@ class User < ActiveRecord::Base
     @client.account.sms.messages.create(
       from: TWILIO_NUMBER,
       to: self.phone,
-      body: 'Whoops something went wrong. Try updating your phone number at http://www.usecurrently.com/settings'
+      body: 'Whoops something went wrong.'
     )
   end
 

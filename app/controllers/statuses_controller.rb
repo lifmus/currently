@@ -16,9 +16,22 @@ class StatusesController < ApplicationController
     @user = User.where(phone: params[:From]).try(:last)
     if @user && @user.statuses.create(content: params[:Body])
       @user.send_successful_status_message
-    else
+    elsif @user
       @user.send_failed_status_message
+    else
+      send_failed_message_to_number(params[:From])
     end
+  end
+
+  private
+
+  def send_failed_message_to_number(phone_number)
+    client = Twilio::REST::Client.new(ENV['TWILIO_ACCOUNT_SID'], ENV['TWILIO_AUTH_TOKEN'])
+    client.account.sms.messages.create(
+      from: '+13472692048',
+      to: phone_number,
+      body: 'Please add your phone number to your Currently account to update your status.'
+    )
   end
 
 end
