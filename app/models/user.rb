@@ -13,6 +13,8 @@ class User < ActiveRecord::Base
   validates :slug, uniqueness: true
   validates :slug, presence: true
 
+  TWILIO_NUMBER = '+13472692048'
+
   def facebook_friends
     if self.leaders.empty?
       User.where.not(id: [self.id])
@@ -45,5 +47,27 @@ class User < ActiveRecord::Base
 
   def auto_generate_slug
     User.find_by_slug(self.name.parameterize) ? self.name.parameterize + rand(10 ** 3).to_s : self.name.parameterize
+  end
+
+  def send_successful_status_message
+    @client.account.sms.messages.create(
+      from: TWILIO_NUMBER,
+      to: self.phone,
+      body: 'Success! Your status has been updated. Check it out at http://www.usecurrently.com/#{self.slug}'
+    )
+  end
+
+  def send_failed_status_message
+    @client.account.sms.messages.create(
+      from: TWILIO_NUMBER,
+      to: self.phone,
+      body: 'Whoops something went wrong. Try updating your phone number at http://www.usecurrently.com/settings'
+    )
+  end
+
+  private
+
+  def start_twilio_client
+    @client = Twilio::REST::Client.new(ENV['TWILIO_ACCOUNT_SID'], ENV['TWILIO_AUTH_TOKEN'])
   end
 end
