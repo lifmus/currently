@@ -24,14 +24,30 @@ class StatusesController < ApplicationController
     redirect_to root_path
   end
 
+  def sms_ping
+    start_twilio_client
+    if send_text_with('Send a text to this Currently number to update your status!', current_user.phone)
+      flash[:success] = 'A text message was sent to your phone number!'
+    end
+    redirect_to settings_path
+  end
+
   private
 
   def send_failed_message_to_number(phone_number)
-    client = Twilio::REST::Client.new(ENV['TWILIO_ACCOUNT_SID'], ENV['TWILIO_AUTH_TOKEN'])
-    client.account.sms.messages.create(
+    start_twilio_client
+    send_text_with('Please add your phone number to your Currently account to update your status.', phone_number)
+  end
+
+  def start_twilio_client
+    @client = Twilio::REST::Client.new(ENV['TWILIO_ACCOUNT_SID'], ENV['TWILIO_AUTH_TOKEN'])
+  end
+
+  def send_text_with(message, phone_number)
+    @client.account.sms.messages.create(
       from: '+13472692048',
       to: phone_number,
-      body: 'Please add your phone number to your Currently account to update your status.'
+      body: message
     )
   end
 
