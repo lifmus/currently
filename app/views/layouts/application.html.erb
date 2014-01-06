@@ -18,25 +18,24 @@
     <%= javascript_include_tag 'application' %>
   </head>
   <body>
-    <header>
-      <%= render partial: 'layouts/navbar' %>
-    </header>
-    <main>
-      <div class='container-fluid'>
-        <div class='row-fluid'>
-          <div class='span12'>
-            <div class='container'>
-              <%= bootstrap_flash %>
+    <div id='wrap'>
+      <header>
+        <%= render partial: 'layouts/navbar' %>
+      </header>
+      <main>
+        <div class='container-fluid'>
+          <div class='row-fluid'>
+            <div class='span12'>
+              <div class='container'>
+                <%= bootstrap_flash %>
+              </div>
+              <%= yield %>
             </div>
-            <%= yield %>
           </div>
         </div>
-      </div>
-    </main>
-
-    <footer>
-    </footer>
-    
+      </main>
+    </div>
+    <%= render partial: 'shared/footer' %>
     <%= render partial: 'shared/google_analytics' %>
   </body>
 </html>
