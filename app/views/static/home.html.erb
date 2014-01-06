@@ -2,8 +2,9 @@
   <div class='static-main'>
     <img src='assets/full_logo.png'>
     <div class='row-fluid'>
-      <div class='span12'><h3 class='static-main-subheader'>Your current status. That's it.</h3></div>
-      <div><a href='/auth/facebook'><img src='assets/facebook_button.png'></a></div>
+      <h3 class='static-main-subheader'>Your current status. That's it.</h3>
+      <a href='/auth/facebook'><img src='assets/facebook_button.png'></a>
+      <h5><%= link_to '(Tell me more)', about_path, class: 'tell-me-more' %></h5>
     </div>
   </div>
 </div>

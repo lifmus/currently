@@ -22,12 +22,22 @@ body.static-layout{
 
 }
 
+.static-about{
+  padding-top: 150px;
+  text-align: center;
+}
+
 .static-main{
-  padding-top: 200px;
+  padding-top: 150px;
   text-align: center;
 }
 
 .static-main-subheader{
+  color: white;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+.tell-me-more{
   color: white;
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }

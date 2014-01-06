@@ -4,4 +4,7 @@ class StaticController < ApplicationController
   def home
     redirect_to connections_path if current_user
   end
+
+  def about
+  end
 end
