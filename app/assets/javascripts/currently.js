@@ -1,4 +1,10 @@
 $(function() {
+  initPage();
+});
+$(window).bind('page:change', function() {
+  initPage();
+});
+function initPage() {
   $(document).ready(function() {
 
     $('#update-status').focus();
@@ -13,13 +19,10 @@ $(function() {
     updateCountdown();
     $('#update-status').change(updateCountdown);
     $('#update-status').keyup(updateCountdown);
+
+    function updateCountdown() {
+        var remaining = 200 - jQuery('#update-status').val().length;
+        jQuery('.countdown').text(remaining + ' characters remaining.');
+    }
   });
-
-});
-
-
-function updateCountdown() {
-    var remaining = 200 - jQuery('#update-status').val().length;
-    jQuery('.countdown').text(remaining + ' characters remaining.');
 }
-
