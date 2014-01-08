@@ -13,7 +13,7 @@ Currently::Application.routes.draw do
   match 'sms-ping', to: 'statuses#sms_ping', as: 'sms_ping', via: :get
   match 'about', to: 'static#about', as: 'about', via: :get
 
-  resources :statuses
+  resources :statuses, :nudges
   resources :connections, path: 'friends'
   match ':slug', to: 'users#show', constraints: lambda { |r| User.find_by_slug(r.params[:slug]).present? }, as: 'user', via: :get
 end
