@@ -1,7 +1,7 @@
 <h4>
   <%= form_for Nudge.new do |f| %>
     <%= f.hidden_field :recipient_id, value: user.id %>
-    <%= f.submit 'Nudge', class: 'btn', disabled: user.nudged_recently? %>
+    <%= f.submit 'Nudge', class: 'btn', disabled: user.nudged_recently?, disable_with: "Nudging..." %>
     <strong>
       <%= link_to user.name, user_path(user.slug), class: 'user-name'%>:
     </strong>
