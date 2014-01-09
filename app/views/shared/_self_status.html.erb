@@ -1,1 +1,0 @@
-<h4><strong><%= link_to user.name, user_path(user.slug), class: 'user-name'%>:</strong> "<%= sanitize(word_wrap(user.latest_status_content, line_width: 40)) %>" <%= time_ago( user.latest_status) %></h4>
