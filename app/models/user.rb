@@ -8,12 +8,18 @@ class User < ActiveRecord::Base
   has_many :followers, through: :follower_connections, source: :follower
   has_many :leader_connections, class_name: 'Connection', foreign_key: 'follower_id'
   has_many :leaders, through: :leader_connections, source: :leader
+  has_many :received_nudges, class_name: 'Nudge', foreign_key: 'recipient_id'
+  has_many :sent_nudges, class_name: 'Nudge', foreign_key: 'sender_id'
 
   validates :slug, clean_username: true
   validates :slug, uniqueness: true
   validates :slug, presence: true
 
   TWILIO_NUMBER = '+13472692048'
+
+  def nudged_recently?
+    !Nudge.where(recipient_id: self.id).where(['created_at > ?', Time.now - 24.hours]).empty?
+  end
 
   def facebook_friends
     if self.leaders.empty?

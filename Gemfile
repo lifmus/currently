@@ -11,6 +11,7 @@ gem 'rollbar'
 gem 'twitter-bootstrap-rails'
 gem 'thin'
 gem 'twilio-ruby'
+gem 'mandrill_mailer'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'

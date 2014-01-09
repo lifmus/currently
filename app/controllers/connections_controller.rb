@@ -12,7 +12,7 @@ class ConnectionsController < ApplicationController
     if @connection.save
       flash[:success] = 'Follow successful!'
     else
-      flash[:error] = @connection.errors.empty? ? "Error" : @connection.errors.full_messages.to_sentence
+      flash[:error] = @connection.errors.empty? ? 'Error' : @connection.errors.full_messages.to_sentence
     end
     redirect_to connections_path
   end
@@ -23,7 +23,7 @@ class ConnectionsController < ApplicationController
       flash[:success] = 'Unfollow successful'
       redirect_to connections_path
     else
-      flash[:error] = @connection.errors.empty? ? "Error" : @connection.errors.full_messages.to_sentence
+      flash[:error] = @connection.errors.empty? ? 'Error' : @connection.errors.full_messages.to_sentence
     end
   end
 end
