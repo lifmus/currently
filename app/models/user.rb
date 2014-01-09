@@ -17,7 +17,15 @@ class User < ActiveRecord::Base
 
   TWILIO_NUMBER = '+13472692048'
 
-  def nudged_recently?
+  def updated_or_was_nudged_recently?
+    self.updated_status_recently? || self.was_nudged_recently?
+  end
+
+  def updated_status_recently?
+    self.latest_status.created_at > Time.now - 24.hours
+  end
+
+  def was_nudged_recently?
     !Nudge.where(recipient_id: self.id).where(['created_at > ?', Time.now - 24.hours]).empty?
   end
 
