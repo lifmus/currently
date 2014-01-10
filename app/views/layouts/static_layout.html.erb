@@ -18,13 +18,9 @@
     <%= javascript_include_tag 'application' %>
   </head>
   <body class='static-layout'>
-    <div id='wrap'>
-      <header>
-        <%= render partial: 'layouts/navbar' if current_user %>
-      </header>
-      <%= yield %>
-    </div>
-    <%= render partial: 'shared/footer' %>
+    <%= render partial: 'layouts/navbar' %>
+    <%= yield %>
+    <%= render partial: 'layouts/footer' %>
     <%= render partial: 'shared/google_analytics' %>
   </body>
 </html>

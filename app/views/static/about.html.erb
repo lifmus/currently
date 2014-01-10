@@ -1,18 +1,20 @@
 <div class='container static-about'>
   <div class='hero-unit'>
-  <h1>Currently</h1>
-  <p>Currently is a website for your current status. Real people only.</p>
+    <h2>Currently</h2>
+    <p>A website for your current status. Real people only.</p>
 
-  <h2>The Big Idea</h2>
-  <p>Twitter and Facebook have too much noise. You can hardly keep up with your friends with all the brands, blogs, celebrities, and ads clogging up your news feed. Currently is a social network for people only. <em>Real people</em>. The ones who matter to you. The ones who care about your inane thoughts or mundane activities. There's no competition for attention here. You arrange your friends yourself, not according to some algorithm. You only get one status at a time; any new status replaces the existing one. Most thoughts and ideas are meant to be fleeting, while the best ones really stick. Let's make sharing personal again.</p>
+    <h2>The Big Idea</h2>
+    <p>Twitter and Facebook have too much noise. You can hardly keep up with your friends with all the brands, blogs, celebrities, and ads clogging up your news feed. Currently is a social network for people only. <em>Real people</em>. The ones who matter to you. The ones who care about your inane thoughts or mundane activities. There's no competition for attention here. You arrange your friends yourself, not according to some algorithm. You only get one status at a time; any new status replaces the existing one. Most thoughts and ideas are meant to be fleeting, while the best ones really stick. Let's make sharing personal again.</p>
 
 
-  <h2>Sample Statuses</h2>
-    <p>This burrito from La Taqueria is amazing</p>
-    <p>I love spending time with my dog</p>
-    <p>I wonder if I'll ever see a flying car in my lifetime</p>
-    <p>I'm so exhausted from work -- time for a bubble bath!</p>
+    <h2>Sample Statuses</h2>
+      <p>This burrito from La Taqueria is amazing</p>
+      <p>I love spending time with my dog</p>
+      <p>I wonder if I'll ever see a flying car in my lifetime</p>
+      <p>I'm so exhausted from work -- time for a bubble bath!</p>
 
-  <a href='/auth/facebook'><img src='assets/facebook_button.png'></a>
-</div>
+    <% unless current_user %>
+      <a href='/auth/facebook'><img src='assets/facebook_button.png'></a>
+    <% end %>
+  </div>
 </div>
