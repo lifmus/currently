@@ -843,7 +843,6 @@ section * {
 }
 .header-10-sub.v-center > div,
 .header-10-sub .v-center > div {
-  display: table-cell;
   vertical-align: middle;
   margin-top: 0;
   margin-bottom: 0;
@@ -1508,13 +1507,13 @@ section * {
   background-color: #445E96;
 }
 body > section.v-center > div {
-  padding-top: 200px;
-  padding-bottom: 200px;
+  padding-top: 60px;
+  padding-bottom: 60px;
 }
 @media (max-width: 767px) {
   body > section.v-center > div {
-    padding-top: 100px;
-    padding-bottom: 100px;
+    padding-top: 60px;
+    padding-bottom: 60px;
   }
 }
 .content-23 {
