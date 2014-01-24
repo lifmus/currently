@@ -5,6 +5,18 @@
 /* 29px */
 /* 28px */
 /* 24px */
+
+/*Added Styles*/
+
+div.facebook-signin a.login-with-facebook-button {
+  background-color: #3b5998;
+}
+
+div.facebook-signin a.login-with-facebook-button:hover {
+  background-color: #445E96;
+}
+
+/*End Added Styles*/
 .inline-block {
   display: inline-block;
   zoom: 1;
@@ -1504,7 +1516,7 @@ section * {
 .header-10 .btn:hover,
 .header-10 .btn.active,
 .header-10 .btn:focus {
-  background-color: #445E96;
+  background-color: #2ecc71;
 }
 body > section.v-center > div {
   padding-top: 60px;

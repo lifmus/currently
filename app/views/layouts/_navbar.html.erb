@@ -6,7 +6,6 @@
         <a class="brand" href="<%= root_path %>">Currently</a>
         <div class="nav-collapse collapse pull-right">
           <ul class="nav">
-            <li><a href="<%= about_path %>">About</a></li>
             <% if current_user %>
               <li><%= link_to current_user.name, user_path(current_user.slug) %></li>
               <li><%= link_to 'Settings', settings_path %></li>
@@ -15,7 +14,7 @@
           </ul>
           <% unless current_user %>
             <form class="navbar-form pull-left">
-              <a class="btn bg-facebook" href="/auth/facebook">Login with Facebook</a>
+              <%= render partial: 'shared/login_with_facebook' %>
             </form>
           <% end %>
         </div>
