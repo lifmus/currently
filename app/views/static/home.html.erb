@@ -1,10 +1,17 @@
-<div class='container static-home'>
-  <div class='static-main'>
-    <img src='assets/full_logo.png'>
-    <div class='row-fluid'>
-      <h3 class='static-main-subheader'>Your current status. That's it.</h3>
-      <a href='/auth/facebook'><img src='assets/facebook_button.png'></a>
-      <h5><%= link_to '(Tell me more)', about_path, class: 'tell-me-more' %></h5>
+<section class="header-10-sub v-center bg-midnight-blue">
+  <div class="background">&nbsp;</div>
+  <div>
+    <div class="container">
+      <div class="hero-unit">
+        <h1><strong>Currently</strong></h1>
+        <p>
+          Keep up with your <em>real</em> friends
+        </p>
+        <br>
+        <br>
+        <%= render partial: 'static/tiles' %>
+      </div>
     </div>
   </div>
-</div>
+</section>       
+

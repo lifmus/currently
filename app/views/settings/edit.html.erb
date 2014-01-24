@@ -4,14 +4,14 @@
     <%= f.text_field :slug %>
     <%= f.label 'Update phone number' %>
     <%= f.text_field :phone, placeholder: '+19735557777' %>
-    <%= f.submit 'Save', class: 'btn' %>
+    <%= f.submit 'Save', class: 'btn btn-primary' %>
   <% end %>
 
   <% unless @user.phone.blank? %>
     <div>
       <h2>
         Send a text message to 347-269-2048 to update your status!
-        <%= link_to 'Send me a text from this number!', sms_ping_path, class: 'btn' %>
+        <%= link_to 'Send me a text from this number!', sms_ping_path, class: 'btn btn-primary' %>
       </h2>
     </div>
   <% end %>
